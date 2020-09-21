@@ -34,6 +34,8 @@ class _AudioItemWidgetState extends State<AudioItemWidget> {
       child: StreamBuilder<Object>(
           stream: assetsAudioPlayer.isPlaying,
           builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting)
+              return Container();
             return Container(
               margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               height: 100,

@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                           itemCount: len,
                           itemBuilder: (context, index) {
                             return AudioItemWidget(
-                              url: provider.getAllAudiosList()[len - index - 1],
+                              url: provider.getAllAudiosList()[index],
                             );
                           },
                         ),
