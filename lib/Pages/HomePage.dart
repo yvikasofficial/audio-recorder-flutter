@@ -32,11 +32,14 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Consumer<AudioProvider>(
           builder: (context, value, child) {
-            int len = value.getAllAudiosList().length;
+            int len;
+            if (value.getAllAudiosList() != null)
+              len = value.getAllAudiosList().length;
+
             return Column(
               children: [
                 _appBar(),
-                provider.getAllAudiosList() != null
+                value.getAllAudiosList() != null
                     ? Expanded(
                         child: ListView.builder(
                           itemCount: len,
